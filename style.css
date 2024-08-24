@@ -1,0 +1,850 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black-color: #1f1f1f;
+  --red-color: #f54932;
+}
+
+@keyframes players {
+  0% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-family: "Merriweather", sans-serif;
+
+  @media (max-width: 800px) {
+    font-weight: 400;
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+marquee {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #f54932;
+}
+
+.ticker {
+  display: flex;
+  gap: 30px;
+  height: 60px;
+  padding: 18px;
+  width: 100%;
+
+  li {
+    font-family: "Merriweather", sans-serif;
+    color: #ffffff;
+    font-size: 22px;
+    line-height: 24.2px;
+    text-transform: uppercase;
+  }
+}
+
+.btn {
+  display: block;
+  width: 263px;
+  height: 72px;
+  padding: 17px 49px;
+  border-radius: 66px;
+  background: var(--black-color);
+
+  font-size: 16px;
+  text-align: center;
+  font-family: "Golos Text", sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  line-height: 20.8px;
+  transition: background-color 0.4s, transform 0.4s;
+
+  &:hover {
+    background-color: #fbce51;
+    color: #1f1f1f;
+  }
+
+  @media (max-width: 600px) {
+    width: 335px;
+    height: 47px;
+    padding: 13px 43px;
+  }
+}
+
+.btn-opposite {
+  background: none;
+  color: var(--black-color);
+  border: 2px solid var(--black-color);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--black-color);
+    color: #ffffff;
+  }
+
+  @media (max-width: 1000px) {
+    background: #ffffff;
+    border: none;
+  }
+}
+
+.btn-more {
+  cursor: pointer;
+  background: none;
+  transition: background-color 0.4s, transform 0.4s;
+  border-radius: 62px;
+  border: 1px solid #3057a2;
+  width: 113px;
+  height: 35px;
+
+  color: #3057a2;
+  font-family: "Golos Text", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+
+  &:hover {
+    background-color: #3057a2;
+    color: #ffffff;
+    border: none;
+  }
+}
+
+.btn-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.4s, transform 0.4s;
+
+  &:hover {
+    background-color: #fbce51;
+  }
+}
+
+.btn-right {
+  background: url("images/arrowRight.webp") no-repeat #313131 55%;
+}
+
+.btn-left {
+  background: url("images/arrowLeft.webp") no-repeat #313131 45%;
+}
+
+.btn-disable {
+  background-color: #d6d6d6;
+}
+
+header {
+  background: url("images/1920.webp") center;
+  background-size: cover;
+  padding: 26px 72px;
+  height: 700px;
+
+  .container {
+    max-width: 1222px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 6.35px;
+
+    p {
+      font-size: 16.65px;
+      font-family: "Golos Text", sans-serif;
+      font-weight: 700;
+      line-height: 17.98px;
+      text-transform: uppercase;
+      width: 147px;
+      color: #595653;
+    }
+  }
+
+  h1 {
+    margin: 62px 0 24px 0;
+    color: #313131;
+    font-size: 60px;
+    line-height: 66px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+
+    span:first-child {
+      text-align: center;
+    }
+
+    span:last-child {
+      text-align: end;
+    }
+  }
+
+  .description {
+    font-family: "Golos Text", sans-serif;
+    font-size: 18px;
+    line-height: 23.4px;
+    color: #313131;
+    max-width: 542px;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 26px 40px;
+
+    h1 {
+      font-size: 46px;
+      width: 450px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    background: url(images/bg-mobile.webp) no-repeat;
+  }
+
+  @media (max-width: 600px) {
+    padding: 18px 20px;
+    height: 774px;
+
+    .container {
+      align-items: center;
+    }
+
+    .logo {
+      align-self: flex-start;
+
+      p {
+        font-size: 14.42px;
+        line-height: 15.57px;
+      }
+    }
+
+    h1 {
+      margin: 40px 0 24px 0;
+      font-size: 36px;
+      width: 335px;
+      font-weight: 400;
+      line-height: 39.6px;
+    }
+
+    nav {
+      margin-top: 32px;
+    }
+
+    .description {
+      width: 335px;
+    }
+
+    nav {
+      flex-direction: column;
+    }
+  }
+}
+
+section {
+  content-visibility: auto;
+  padding: 0 72px;
+
+  @media (max-width: 600px) {
+    padding: 0 20px 0 19px;
+  }
+}
+
+.support {
+  margin-top: 80px;
+
+  h2 {
+    font-size: 36px;
+    line-height: 48.6px;
+    font-weight: 400;
+
+    span {
+      font-weight: 700;
+      color: var(--red-color);
+    }
+  }
+
+  .column {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      width: 764px;
+    }
+  }
+
+  .gameImg {
+    width: 394px;
+    height: 250px;
+  }
+
+  .column2 {
+    margin-top: 64px;
+    display: flex;
+    gap: 44px;
+    justify-content: center;
+
+    h2 {
+      width: 704px;
+    }
+
+    .imgContainer {
+      position: relative;
+      width: 474px;
+      height: 527px;
+
+      img {
+        position: absolute;
+        left: -27px;
+        top: -47px;
+      }
+    }
+
+    footer {
+      color: #3057a2;
+      font-size: 20px;
+      line-height: 24px;
+      font-family: "Golos Text", sans-serif;
+    }
+
+    table {
+      margin-top: 60px;
+      margin-bottom: 48px;
+      border-collapse: collapse;
+      font-size: 20px;
+      color: #313131;
+      font-family: "Golos Text", sans-serif;
+
+      .oldPrice {
+        text-decoration: line-through;
+        text-decoration-color: red;
+      }
+
+      tr {
+        border-bottom: 2px solid #d0d0d0;
+      }
+
+      tr:last-child {
+        border: none;
+
+        td {
+          padding-bottom: 0;
+          padding-top: 16px;
+        }
+      }
+
+      tr:first-child {
+        td {
+          padding-top: 0;
+          padding-bottom: 16px;
+        }
+      }
+
+      td:nth-child(odd) {
+        opacity: 0.7;
+        padding-right: 16px;
+      }
+
+      td:nth-child(even) {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border-left: 2px solid #d0d0d0;
+        font-weight: 600;
+        padding-left: 16px;
+        width: 398px;
+      }
+    }
+  }
+
+  @media (max-width: 1365px) {
+    h2 {
+      font-size: 32px;
+    }
+
+    .column2 {
+      h2 {
+        width: 400px;
+      }
+
+      .imgContainer {
+        img {
+          width: 375px;
+          right: 10px;
+          top: -19px;
+          left: -19px;
+        }
+      }
+
+      .d-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  @media (max-width: 950px) {
+    margin-top: 48px;
+
+    h2 {
+      font-size: 28px;
+      line-height: 37.8px;
+    }
+
+    .gameImg {
+      width: 335px;
+      height: 212.56px;
+    }
+
+    .column {
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .column2 {
+      flex-wrap: wrap;
+
+      h2 {
+        width: 100%;
+      }
+
+      .imgContainer {
+        width: 335px;
+        height: 402px;
+
+        img {
+          width: 375px;
+          right: 10px;
+          top: -19px;
+          left: -19px;
+        }
+      }
+
+      table {
+        margin-top: 44px;
+        margin-bottom: 40px;
+
+        tr {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        tr {
+          padding-top: 16px;
+        }
+
+        td:nth-child(odd) {
+          padding-bottom: 12px;
+        }
+
+        td:nth-child(even) {
+          border: none;
+          width: auto;
+          padding-left: 0;
+        }
+
+        tr:last-child {
+          td {
+            padding-top: 0;
+          }
+        }
+
+        tr:first-child {
+          padding-top: 0;
+
+          td {
+            padding-bottom: 0;
+          }
+        }
+
+        td:nth-child(2n) {
+          padding-top: 0;
+        }
+      }
+
+      footer {
+        font-size: 18px;
+        line-height: 21.6px;
+      }
+    }
+  }
+}
+
+.about {
+  article {
+    max-width: 1222px;
+    margin: 200px auto 0 auto;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  .circles {
+    display: flex;
+    gap: 6px;
+  }
+
+  .circle {
+    width: 10px;
+    height: 10px;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+  }
+
+  .activeCircle {
+    background-color: #313131;
+  }
+
+  h2 {
+    font-size: 54px;
+    line-height: 64.8px;
+    width: 806px;
+    position: relative;
+  }
+
+  h2::after {
+    position: absolute;
+    content: "Будущие источники обогащения васюкинцев";
+    font-family: "Golos Text", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #3057a2;
+    width: 300px;
+    display: block;
+    top: 73px;
+    left: 310px;
+  }
+
+  .aircraft {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: -62px;
+  }
+
+  ol {
+    margin-top: 64px;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+
+    grid-template-columns: repeat(3, 394px);
+    grid-template-rows: 112px 112px 136px;
+  }
+
+  .number {
+    background-color: #ffffff;
+    border-radius: 60px;
+    font-weight: 600;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 20px;
+  }
+
+  li {
+    position: relative;
+    background: url(images/bg.webp);
+    padding: 20px 20px 20px 72px;
+    font-family: "Golos Text", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    list-style-type: none;
+  }
+
+  .thirdItem {
+    grid-row: 1/3;
+    grid-column: 3/4;
+  }
+
+  .seventhItem {
+    grid-column: 2/4;
+    padding-right: 230px;
+  }
+
+  .aircraft2 {
+    display: none;
+  }
+
+  .buttons {
+    display: none;
+  }
+
+  @media (max-width: 1250px) {
+    .aircraft {
+      display: none;
+    }
+
+    .secondItem {
+      margin-top: 28px;
+    }
+
+    .buttons {
+      display: flex;
+    }
+
+    article {
+      margin-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .aircraft2 {
+      display: block;
+      position: fixed;
+      z-index: 1;
+      bottom: 300px;
+      width: 335px;
+    }
+
+    h2 {
+      font-size: 36px;
+      width: 100%;
+      line-height: 39.6px;
+
+      &::after {
+        margin-top: 12px;
+        position: relative;
+        font-size: 18px;
+        top: 0;
+        left: 0;
+        line-height: 21.6px;
+      }
+    }
+
+    ol {
+      grid-template-columns: repeat(5, 335px);
+      grid-template-rows: 0;
+      overflow: hidden;
+      width: 335px;
+      height: 300px;
+      justify-content: start;
+      scroll-behavior: smooth;
+      margin: 148px auto 0 auto;
+      position: relative;
+    }
+
+    li {
+      padding: 62px 20px 0 72px;
+      height: 300px;
+      width: 335px;
+      font-size: 18px;
+      line-height: 21.6px;
+    }
+
+    .thirdItem {
+      grid-row: 1/1;
+      grid-column: 2/3;
+    }
+
+    .seventhItem {
+      grid-column: 5/6;
+      padding-right: 20px;
+    }
+  }
+}
+
+.participants {
+  article {
+    max-width: 1222px;
+    margin: 0 auto;
+  }
+
+  margin-top: 200px;
+
+  h2 {
+    font-size: 54px;
+    line-height: 64.8px;
+  }
+
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .btnsGroup {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .players {
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 140px;
+    gap: 20px;
+    scroll-behavior: smooth;
+    overflow: hidden;
+  }
+
+  .player {
+    flex: 1 0 394px;
+    height: 462px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+
+    h3 {
+      font-family: "Golos Text", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 28.8px;
+      color: #313131;
+      text-align: center;
+      margin-top: 28px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-family: "Golos Text", sans-serif;
+      font-size: 20px;
+      line-height: 24px;
+      color: #313131;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 1365px) {
+    .players {
+      width: 1090px;
+      margin: 60px auto 140px auto;
+    }
+
+    .player {
+      flex: 1 0 350px;
+      height: 462px;
+    }
+  }
+
+  @media (max-width: 1250px) {
+    .players {
+      width: 720px;
+      margin: 60px auto 140px auto;
+    }
+
+    .player {
+      flex: 1 0 350px;
+      height: 462px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    margin-top: 120px;
+
+    h2 {
+      font-size: 36px;
+      line-height: 39.6px;
+    }
+
+    .btnsGroup {
+      margin-bottom: 100px;
+      justify-content: center;
+    }
+
+    .players {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      width: 335px;
+    }
+
+    .player {
+      flex: 1 0 335px;
+      height: 388px;
+
+      h3 {
+        margin-bottom: 8px;
+      }
+
+      .img {
+        width: 244px;
+      }
+    }
+  }
+}
+
+body > footer {
+  font-family: "Golos Text", sans-serif;
+  padding: 40px 72px 72px 72px;
+  background: #e9ded4;
+  opacity: 0.6;
+  line-height: 19.2px;
+  content-visibility: a;
+
+  @media (max-width: 375px) {
+    padding: 40px 20px 60px 20px;
+  }
+}
+
+#mobile {
+  display: none;
+}
+
+.pb16 {
+  @media (max-width: 1000px) {
+    padding-bottom: 16px;
+  }
+}
+
+#desktop {
+  display: block;
+}
+
+@media (max-width: 950px) {
+  #mobile {
+    display: block;
+  }
+  #desktop {
+    display: none;
+  }
+}
